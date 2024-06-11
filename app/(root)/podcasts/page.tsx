@@ -1,11 +1,9 @@
 "use client";
 import Background from "@/components/layout/background";
 import {
-  mdiCamera,
-  mdiChefHat,
+  mdiAlphabetCyrillic,
   mdiCodeJson,
-  mdiDevices,
-  mdiForest,
+  mdiHiking,
   mdiPlaneTrain,
 } from "@mdi/js";
 import Icon from "@mdi/react";
@@ -42,25 +40,20 @@ const Podcasts = () => {
 
   const filters = [
     {
-      label: "Technology",
-      icon: <Icon className="h-5 w-5" path={mdiDevices} />,
+      label: "Life style",
+      icon: <Icon className="h-5 w-5" path={mdiHiking} />,
     },
     {
-      label: "Web development",
+      label: "Technology",
       icon: <Icon className="h-5 w-5" path={mdiCodeJson} />,
     },
     {
-      label: "Life style",
-      icon: <Icon className="h-5 w-5" path={mdiForest} />,
+      label: "Language",
+      icon: <Icon className="h-5 w-5" path={mdiAlphabetCyrillic} />,
     },
     {
       label: "Travel",
       icon: <Icon className="h-5 w-5" path={mdiPlaneTrain} />,
-    },
-    { label: "Cooking", icon: <Icon className="h-5 w-5" path={mdiChefHat} /> },
-    {
-      label: "Photograph",
-      icon: <Icon className="h-5 w-5" path={mdiCamera} />,
     },
   ];
 

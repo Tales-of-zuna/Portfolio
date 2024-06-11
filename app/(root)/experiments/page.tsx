@@ -1,12 +1,10 @@
 "use client";
 import Background from "@/components/layout/background";
 import {
-  mdiCamera,
+  mdiApplicationBraces,
   mdiChefHat,
-  mdiCodeJson,
+  mdiCompare,
   mdiDevices,
-  mdiForest,
-  mdiPlaneTrain,
 } from "@mdi/js";
 import Icon from "@mdi/react";
 import { Button } from "@nextui-org/react";
@@ -46,22 +44,15 @@ const Experiments = () => {
       icon: <Icon className="h-5 w-5" path={mdiDevices} />,
     },
     {
-      label: "Web development",
-      icon: <Icon className="h-5 w-5" path={mdiCodeJson} />,
+      label: "Performance",
+      icon: <Icon className="h-5 w-5" path={mdiCompare} />,
     },
     {
-      label: "Life style",
-      icon: <Icon className="h-5 w-5" path={mdiForest} />,
+      label: "Software",
+      icon: <Icon className="h-5 w-5" path={mdiApplicationBraces} />,
     },
-    {
-      label: "Travel",
-      icon: <Icon className="h-5 w-5" path={mdiPlaneTrain} />,
-    },
+
     { label: "Cooking", icon: <Icon className="h-5 w-5" path={mdiChefHat} /> },
-    {
-      label: "Photograph",
-      icon: <Icon className="h-5 w-5" path={mdiCamera} />,
-    },
   ];
 
   return (

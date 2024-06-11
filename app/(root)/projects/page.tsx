@@ -1,12 +1,13 @@
 "use client";
 import Background from "@/components/layout/background";
 import {
-  mdiCamera,
-  mdiChefHat,
-  mdiCodeJson,
-  mdiDevices,
-  mdiForest,
-  mdiPlaneTrain,
+  mdiKubernetes,
+  mdiLanguageGo,
+  mdiLanguageJava,
+  mdiLanguageJavascript,
+  mdiLeaf,
+  mdiNuxt,
+  mdiReact,
 } from "@mdi/js";
 import Icon from "@mdi/react";
 import { Button } from "@nextui-org/react";
@@ -42,25 +43,32 @@ const Projects = () => {
 
   const filters = [
     {
-      label: "Technology",
-      icon: <Icon className="h-5 w-5" path={mdiDevices} />,
+      label: "NextJS",
+      icon: <Icon className="h-5 w-5" path={mdiReact} />,
     },
     {
-      label: "Web development",
-      icon: <Icon className="h-5 w-5" path={mdiCodeJson} />,
+      label: "MongoDB",
+      icon: <Icon className="h-5 w-5" path={mdiLeaf} />,
     },
     {
-      label: "Life style",
-      icon: <Icon className="h-5 w-5" path={mdiForest} />,
+      label: "ExpressJS",
+      icon: <Icon className="h-5 w-5" path={mdiLanguageJavascript} />,
     },
     {
-      label: "Travel",
-      icon: <Icon className="h-5 w-5" path={mdiPlaneTrain} />,
+      label: "Go",
+      icon: <Icon className="h-5 w-5" path={mdiLanguageGo} />,
     },
-    { label: "Cooking", icon: <Icon className="h-5 w-5" path={mdiChefHat} /> },
     {
-      label: "Photograph",
-      icon: <Icon className="h-5 w-5" path={mdiCamera} />,
+      label: "Kubernetes",
+      icon: <Icon className="h-5 w-5" path={mdiKubernetes} />,
+    },
+    {
+      label: "Quarkus",
+      icon: <Icon className="h-5 w-5" path={mdiLanguageJava} />,
+    },
+    {
+      label: "NuxtJS",
+      icon: <Icon className="h-5 w-5" path={mdiNuxt} />,
     },
   ];
 

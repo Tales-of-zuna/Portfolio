@@ -90,9 +90,12 @@ const Navbar = () => {
               </Link>
             </Tooltip>
           ))}
+          <div className="h-10 w-px rounded-full bg-neutral-400 opacity-50"></div>
           <SignInButton />
         </div>
-        <div className="block md:hidden">
+
+        <div className="flex items-center gap-4 md:hidden">
+          <SignInButton />
           <MobileSidebar />
         </div>
       </div>
