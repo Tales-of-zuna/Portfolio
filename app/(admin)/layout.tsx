@@ -6,7 +6,7 @@ const AdminLayout = ({ children }: { children: React.ReactNode }) => {
       <nav className="w-1/5">
         <AdminSidebar />
       </nav>
-      <section className="min-h-screen w-4/5 p-8">{children}</section>
+      <section className="min-h-screen w-4/5 p-8 light">{children}</section>
       <footer className="">{/* <Footer /> */}</footer>
     </main>
   );

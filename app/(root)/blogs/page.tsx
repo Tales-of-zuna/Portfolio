@@ -10,12 +10,27 @@ import {
 } from "@mdi/js";
 import Icon from "@mdi/react";
 import { Button } from "@nextui-org/react";
+import dayjs from "dayjs";
+import { useRouter } from "next/navigation";
 import { useEffect, useState } from "react";
 
 const Blogs = () => {
+  type Blog = {
+    _id: string;
+    title: string;
+    image: string;
+    categories: Array<String>;
+    createdAt: Date;
+    summary: string;
+    video: string;
+    slug: string;
+    author: any;
+  };
   const [mounted, setMounted] = useState(false);
   const [firstMount, setFirstMount] = useState(true);
   const [activeFilters, setActiveFilters] = useState<any>([]);
+  const [blogs, setBlogs] = useState<any>([]);
+  const router = useRouter();
 
   const toggleFilter = (filter: any) => {
     setActiveFilters((prevFilters: any) => {
@@ -26,6 +41,15 @@ const Blogs = () => {
       }
     });
   };
+
+  useEffect(() => {
+    const fetchBlogs = async () => {
+      const res = await fetch("/api/blogs");
+      const blogs = await res.json();
+      setBlogs(blogs);
+    };
+    fetchBlogs();
+  }, []);
 
   useEffect(() => {
     setMounted(true);
@@ -101,6 +125,41 @@ const Blogs = () => {
               {filter.label} {filter.icon}
             </Button>
           ))}
+        </div>
+
+        <div className="grid grid-cols-4">
+          {blogs?.map((blog: Blog, idx: any) => {
+            return (
+              <button
+                onClick={() => {
+                  router.push(`/blogs/${blog.slug}`);
+                }}
+                key={idx}
+                className="col-span-1 transform rounded-lg bg-slate-700 bg-opacity-30 backdrop-blur-sm transition-all duration-300 ease-in-out hover:-translate-y-2 active:scale-95"
+              >
+                <video
+                  src={blog.video}
+                  className="rounded-t-lg"
+                  loop
+                  muted
+                  autoPlay
+                />
+                <div className="space-y-4 p-4">
+                  <div>
+                    <p className="truncate font-bold text-slate-200">
+                      {blog.title}
+                    </p>
+                    <p className="line-clamp-2 text-sm">{blog.summary}</p>
+                  </div>
+                  <div className="flex items-center justify-between">
+                    <p className="">
+                      {dayjs(blog.createdAt).format("YYYY.MM.DD")}
+                    </p>
+                  </div>
+                </div>
+              </button>
+            );
+          })}
         </div>
       </div>
     </div>

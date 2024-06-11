@@ -13,7 +13,6 @@ const BlogDetails = ({ params }: { params: { slug: string } }) => {
   const [mounted, setMounted] = useState(false);
   const getBlog = async () => {
     const res = await fetch(`/api/blogs?slug=${params.slug}`);
-
     const data = await res.json();
     setData(data);
     console.log(data);

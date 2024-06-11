@@ -20,7 +20,7 @@ export const GET = async (req: NextRequest) => {
     }
   } else {
     try {
-      const blogs = await Blog.find().populate("author");
+      const blogs = await Blog.find();
       return Response.json(blogs);
     } catch (error) {
       console.log(error);
