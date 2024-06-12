@@ -2,11 +2,16 @@ import { mdiChefHat, mdiForest, mdiPlaneTrain } from "@mdi/js";
 import Icon from "@mdi/react";
 import { Card, CardFooter, CardHeader } from "@nextui-org/react";
 import dayjs from "dayjs";
+import { useRouter } from "next/navigation";
 
 const BlogCard = (props: any) => {
+  const router = useRouter();
   return (
     <div>
       <Card
+        onClick={() => {
+          router.push(`/blogs/${props.blog.slug}`);
+        }}
         isFooterBlurred
         isPressable
         className="relative h-80 w-full rounded-xl bg-transparent shadow-xl"
