@@ -108,7 +108,7 @@ const Blogs = () => {
                 activeFilters.includes(filter.label)
                   ? "bg-neutral-100 text-neutral-700"
                   : "bg-neutral-700 bg-opacity-30 text-slate-300"
-              } flex transform items-center gap-1 rounded-lg px-4 py-1 transition-all duration-300 ease-in-out hover:scale-105 hover:bg-white hover:text-neutral-700 active:scale-95`}
+              } flex transform items-center gap-1 rounded-lg px-4 py-1 transition-all duration-300 ease-in-out hover:scale-105 hover:text-neutral-700 active:scale-95 md:hover:bg-white`}
             >
               {filter.label} {filter.icon}
             </Button>
