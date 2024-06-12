@@ -176,7 +176,7 @@ const CreateBlog = () => {
       </div>
       <Editor
         apiKey="ubflr0wgpoppbg5z06a3ax83dqtz8fht105bjauj0ws8l9io"
-        onInit={(_evt, editor) => (editorRef.current = editor)}
+        onInit={(_evt: any, editor: any) => (editorRef.current = editor)}
         onEditorChange={handleEditorChange}
         init={{
           height: 500,
