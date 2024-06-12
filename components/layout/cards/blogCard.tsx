@@ -30,13 +30,13 @@ const BlogCard = (props: any) => {
         <CardFooter className="absolute bottom-0 z-10 h-20 rounded-xl bg-neutral-950 bg-opacity-60">
           <div className="flex items-center gap-2">
             <div className="flex gap-2">
-              <div className="rounded-lg bg-white p-1">
+              <div className="rounded-lg bg-white p-1 text-neutral-800">
                 <Icon path={mdiPlaneTrain} className="h-5 w-5" />
               </div>
-              <div className="rounded-lg bg-white p-1">
+              <div className="rounded-lg bg-white p-1 text-neutral-800">
                 <Icon path={mdiForest} className="h-5 w-5" />
               </div>
-              <div className="rounded-lg bg-white p-1">
+              <div className="rounded-lg bg-white p-1 text-neutral-800">
                 <Icon path={mdiChefHat} className="h-5 w-5" />
               </div>
             </div>
