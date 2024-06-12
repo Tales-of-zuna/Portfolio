@@ -1,6 +1,7 @@
 "use client";
 import Background from "@/components/layout/background";
 import BlogCard from "@/components/layout/cards/blogCard";
+import SkeletonCard from "@/components/layout/cards/skeletonCard";
 import {
   mdiCamera,
   mdiChefHat,
@@ -11,26 +12,13 @@ import {
 } from "@mdi/js";
 import Icon from "@mdi/react";
 import { Button } from "@nextui-org/react";
-import { useRouter } from "next/navigation";
 import { useEffect, useState } from "react";
 
 const Blogs = () => {
-  type Blog = {
-    _id: string;
-    title: string;
-    image: string;
-    categories: Array<String>;
-    createdAt: Date;
-    summary: string;
-    video: string;
-    slug: string;
-    author: any;
-  };
   const [mounted, setMounted] = useState(false);
   const [firstMount, setFirstMount] = useState(true);
   const [activeFilters, setActiveFilters] = useState<any>([]);
   const [blogs, setBlogs] = useState<any>([]);
-  const router = useRouter();
 
   const toggleFilter = (filter: any) => {
     setActiveFilters((prevFilters: any) => {
@@ -128,9 +116,11 @@ const Blogs = () => {
         </div>
 
         <div className="grid gap-8 md:grid-cols-4">
-          {blogs?.map((blog: Blog, idx: any) => {
-            return <BlogCard key={idx} blog={blog} />;
-          })}
+          {blogs
+            ? blogs.map((blog: any, idx: any) => {
+                return <BlogCard key={idx} blog={blog} />;
+              })
+            : Array.from({ length: 4 }, (_, i) => <SkeletonCard key={i} />)}
         </div>
       </div>
     </div>

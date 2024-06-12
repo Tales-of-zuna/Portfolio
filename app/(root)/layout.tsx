@@ -7,7 +7,7 @@ const MainLayout = ({ children }: { children: React.ReactNode }) => {
         <Navbar />
       </nav>
       <section className="min-h-screen w-full">{children}</section>
-      <footer className="">{/* <Footer /> */}</footer>
+      <footer className="absolute">{/* <Footer /> */}</footer>
     </main>
   );
 };

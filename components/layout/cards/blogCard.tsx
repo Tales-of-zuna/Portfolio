@@ -33,7 +33,7 @@ const BlogCard = (props: any) => {
           </h4>
         </CardHeader>
         <CardFooter className="absolute bottom-0 z-10 h-20 rounded-xl bg-neutral-950 bg-opacity-60">
-          <div className="flex items-center gap-2">
+          <div className="flex items-center gap-4">
             <div className="flex gap-2">
               <div className="rounded-lg bg-white p-1 text-neutral-800">
                 <Icon path={mdiPlaneTrain} className="h-5 w-5" />
@@ -46,7 +46,7 @@ const BlogCard = (props: any) => {
               </div>
             </div>
             <div className="">
-              <p className="line-clamp-2 text-sm text-neutral-300">
+              <p className="line-clamp-2 text-start text-sm text-neutral-300">
                 {props.blog.summary}
               </p>
             </div>

@@ -1,5 +1,5 @@
 "use client";
-import { Accordion, AccordionItem, Button, Input } from "@nextui-org/react";
+import { Button, Input } from "@nextui-org/react";
 import { Editor } from "@tinymce/tinymce-react";
 import { SetStateAction, useEffect, useRef, useState } from "react";
 
@@ -129,8 +129,8 @@ const CreateBlog = () => {
           onChange={(e) => setTags(e.target.value.split(","))}
         />
       </div>
-      <div className="grid grid-cols-2 gap-4">
-        <Accordion className="rounded-xl bg-neutral-100">
+      <div className=" ">
+        {/* <Accordion className="rounded-xl bg-neutral-100">
           <AccordionItem
             key="1"
             aria-label="Accordion 1"
@@ -156,7 +156,7 @@ const CreateBlog = () => {
               </Button>
             </div>
           </AccordionItem>
-        </Accordion>
+        </Accordion> */}
         <div className="flex min-w-60 flex-wrap gap-2">
           {remoteCategories.map((category: any) => (
             <Button
