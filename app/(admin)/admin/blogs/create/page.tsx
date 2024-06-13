@@ -39,7 +39,7 @@ const CreateBlog = () => {
       image,
       video,
       tags,
-      category: categories,
+      categories: categories,
     };
     console.log(newBlog);
     try {
@@ -59,6 +59,10 @@ const CreateBlog = () => {
         setVideo("");
         setTags([]);
         setCategories([]);
+        setCategoryToCreate("");
+        setRemoteCategories([]);
+        setSubmitting(false);
+        editorRef.current.editor.setContent("");
       } else {
         console.error("Failed to create blog");
       }
@@ -72,11 +76,11 @@ const CreateBlog = () => {
   const handleEditorChange = (content: SetStateAction<string>) => {
     setContent(content);
   };
-  const toggleCategory = (categoryId: any) => {
-    if (categories.includes(categoryId)) {
-      setCategories(categories.filter((id: any) => id !== categoryId));
+  const toggleCategory = (categoryName: any) => {
+    if (categories.includes(categoryName)) {
+      setCategories(categories.filter((name: any) => name !== categoryName));
     } else {
-      setCategories([...categories, categoryId]);
+      setCategories([...categories, categoryName]);
     }
   };
 
@@ -130,44 +134,13 @@ const CreateBlog = () => {
         />
       </div>
       <div className=" ">
-        {/* <Accordion className="rounded-xl bg-neutral-100">
-          <AccordionItem
-            key="1"
-            aria-label="Accordion 1"
-            title={<p className="text-sm text-neutral-500">Add category</p>}
-          >
-            <div className="flex items-center gap-4">
-              <Input
-                label="Category"
-                size="sm"
-                color="danger"
-                onChange={(e) => {
-                  setCategoryToCreate(e.target.value);
-                }}
-              />
-              <Button
-                className=""
-                color="success"
-                onClick={() => {
-                  addCategory();
-                }}
-              >
-                Add
-              </Button>
-            </div>
-          </AccordionItem>
-        </Accordion> */}
         <div className="flex min-w-60 flex-wrap gap-2">
           {remoteCategories.map((category: any) => (
             <Button
               key={category._id}
               size="sm"
-              className={
-                categories.includes(category._id)
-                  ? "bg-neutral-700 text-white"
-                  : "bg-neutral-100"
-              }
-              onClick={() => toggleCategory(category._id)}
+              className={`${categories.includes(category.name) ? "bg-neutral-700 text-white" : "bg-neutral-100"} transform transition-all duration-300 ease-in-out hover:bg-neutral-700 hover:text-white`}
+              onClick={() => toggleCategory(category.name)}
             >
               {category.name}
             </Button>

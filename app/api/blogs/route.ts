@@ -8,6 +8,8 @@ ConnectMongoDB();
 export const GET = async (req: NextRequest) => {
   const searchParams = req.nextUrl.searchParams;
   const query = searchParams.get("slug");
+  const categoryNames = searchParams.getAll("category");
+
   if (query != null) {
     try {
       const blog = await Blog.findOne({
@@ -20,7 +22,11 @@ export const GET = async (req: NextRequest) => {
     }
   } else {
     try {
-      const blogs = await Blog.find();
+      let query = {};
+      if (categoryNames.length > 0) {
+        query = { categories: { $in: categoryNames } };
+      }
+      const blogs = await Blog.find(query);
       return Response.json(blogs);
     } catch (error) {
       console.log(error);

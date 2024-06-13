@@ -1,4 +1,11 @@
-import { mdiChefHat, mdiForest, mdiPlaneTrain } from "@mdi/js";
+import {
+  mdiCamera,
+  mdiChefHat,
+  mdiCodeJson,
+  mdiDevices,
+  mdiForest,
+  mdiPlaneTrain,
+} from "@mdi/js";
 import Icon from "@mdi/react";
 import { Card, CardFooter, CardHeader } from "@nextui-org/react";
 import dayjs from "dayjs";
@@ -6,6 +13,32 @@ import { useRouter } from "next/navigation";
 
 const BlogCard = (props: any) => {
   const router = useRouter();
+  const icons = [
+    {
+      label: "Technology",
+      icon: <Icon className="h-5 w-5" path={mdiDevices} />,
+    },
+    {
+      label: "Web development",
+      icon: <Icon className="h-5 w-5" path={mdiCodeJson} />,
+    },
+    {
+      label: "Life style",
+      icon: <Icon className="h-5 w-5" path={mdiForest} />,
+    },
+    {
+      label: "Travel",
+      icon: <Icon className="h-5 w-5" path={mdiPlaneTrain} />,
+    },
+    { label: "Cooking", icon: <Icon className="h-5 w-5" path={mdiChefHat} /> },
+    {
+      label: "Photograph",
+      icon: <Icon className="h-5 w-5" path={mdiCamera} />,
+    },
+  ];
+  const shouldRenderIcon = (label: string) => {
+    return props.blog.categories.includes(label);
+  };
   return (
     <div>
       <Card
@@ -34,17 +67,15 @@ const BlogCard = (props: any) => {
         </CardHeader>
         <CardFooter className="absolute bottom-0 z-10 h-20 rounded-xl bg-neutral-950 bg-opacity-60">
           <div className="flex items-center gap-4">
-            <div className="flex gap-2">
-              <div className="rounded-lg bg-white p-1 text-neutral-800">
-                <Icon path={mdiPlaneTrain} className="h-5 w-5" />
-              </div>
-              <div className="rounded-lg bg-white p-1 text-neutral-800">
-                <Icon path={mdiForest} className="h-5 w-5" />
-              </div>
-              <div className="rounded-lg bg-white p-1 text-neutral-800">
-                <Icon path={mdiChefHat} className="h-5 w-5" />
-              </div>
-            </div>
+            {icons.map((iconObj, index) =>
+              shouldRenderIcon(iconObj.label) ? (
+                <div key={index} className="flex gap-2">
+                  <div className="rounded-lg bg-white p-1 text-neutral-800">
+                    {iconObj.icon}
+                  </div>
+                </div>
+              ) : null,
+            )}
             <div className="">
               <p className="line-clamp-2 text-start text-sm text-neutral-300">
                 {props.blog.summary}

@@ -32,12 +32,16 @@ const Blogs = () => {
 
   useEffect(() => {
     const fetchBlogs = async () => {
-      const res = await fetch("/api/blogs");
+      let url = "/api/blogs";
+      if (activeFilters.length > 0) {
+        url += `?category=${activeFilters.join("&category=")}`;
+      }
+      const res = await fetch(url);
       const blogs = await res.json();
       setBlogs(blogs);
     };
     fetchBlogs();
-  }, []);
+  }, [activeFilters]);
 
   useEffect(() => {
     setMounted(true);
@@ -117,7 +121,7 @@ const Blogs = () => {
 
         <div className="grid gap-8 md:grid-cols-4">
           {blogs
-            ? blogs.map((blog: any, idx: any) => {
+            ? blogs?.map((blog: any, idx: any) => {
                 return <BlogCard key={idx} blog={blog} />;
               })
             : Array.from({ length: 4 }, (_, i) => <SkeletonCard key={i} />)}

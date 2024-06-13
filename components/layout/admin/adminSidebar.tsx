@@ -16,7 +16,11 @@ import { usePathname } from "next/navigation";
 import { useEffect, useState } from "react";
 
 const buttons = [
-  { path: mdiViewDashboard, href: "/admin", tooltipContent: "Dashboard" },
+  {
+    path: mdiViewDashboard,
+    href: "/admin/dashboard",
+    tooltipContent: "Dashboard",
+  },
   { path: mdiPost, href: "/admin/blogs", tooltipContent: "Blogs" },
   {
     path: mdiApplicationBraces,
@@ -35,7 +39,7 @@ const SidebarButton = ({ path, href, tooltipContent }: any) => {
   const currentPath = usePathname();
 
   useEffect(() => {
-    setIsActive(href === currentPath);
+    setIsActive(currentPath.includes(href));
   }, [href, currentPath]);
 
   return (

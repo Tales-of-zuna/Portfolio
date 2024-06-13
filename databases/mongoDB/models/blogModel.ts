@@ -1,5 +1,4 @@
 import mongoose from "mongoose";
-import Category from "./categoryModel";
 
 const blogSchema = new mongoose.Schema(
   {
@@ -12,9 +11,7 @@ const blogSchema = new mongoose.Schema(
     tags: [{ type: String }],
     categories: [
       {
-        type: mongoose.Schema.Types.ObjectId,
-        ref: Category,
-        required: true,
+        type: String,
       },
     ],
   },

@@ -3,13 +3,7 @@ import dayjs from "dayjs";
 import { useEffect, useState } from "react";
 
 const BlogDetails = ({ params }: { params: { slug: string } }) => {
-  type blog = {
-    createdAt: string;
-    title: string;
-    image: string;
-    content: string;
-  };
-  const [data, setData] = useState<blog>();
+  const [data, setData] = useState<any>();
   const [mounted, setMounted] = useState(false);
   const getBlog = async () => {
     const res = await fetch(`/api/blogs?slug=${params.slug}`);
@@ -18,10 +12,12 @@ const BlogDetails = ({ params }: { params: { slug: string } }) => {
     console.log(data);
     return data;
   };
+
   useEffect(() => {
     getBlog();
     setMounted(true);
   }, []);
+
   return (
     <div
       className={`${
