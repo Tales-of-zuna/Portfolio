@@ -5,15 +5,15 @@ import { useRouter } from "next/navigation";
 const Notfound = () => {
   const router = useRouter();
   return (
-    <main className="flex flex-col justify-center space-y-4 h-screen items-center">
-      <p className="font-bold text-8xl">404</p>
-      <div className="w-32 h-1 rounded-xl bg-neutral-700"></div>
+    <main className="flex h-screen flex-col items-center justify-center space-y-4">
+      <p className="text-8xl font-bold">404</p>
+      <div className="h-1 w-32 rounded-xl bg-neutral-700"></div>
       <p className="text-3xl font-light">Page not found</p>
       <Button
         onClick={() => {
           router.back();
         }}
-        className="border text-white z-20"
+        className="z-20 border text-white"
         variant="bordered"
       >
         Back

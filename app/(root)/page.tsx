@@ -29,7 +29,7 @@ const Home = () => {
 
   useEffect(() => {
     const year = new Date().getFullYear();
-    const years = year - 2019;
+    const years = year - 2020;
     setYearsExp(years);
     setMounted(true);
   }, []);
@@ -100,7 +100,7 @@ const Home = () => {
             {" "}
             {yearsExp}
           </span>{" "}
-          years of experience.
+          years of professional experience.
         </p>
         <p
           className={
