@@ -16,6 +16,14 @@
   }
 }
 
+@layer base {
+  ul,
+  ol {
+    list-style: revert;
+    padding-left: 30px;
+  }
+}
+
 body {
   color: rgb(var(--foreground-rgb));
   background: black;
