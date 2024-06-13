@@ -13,7 +13,7 @@ const AdminLayout = ({ children }: { children: React.ReactNode }) => {
     "cloud.lifec@gmail.com",
     "bmbdlm2001@gmail.com",
   ];
-  if (allowedList.includes(session?.user?.email as string)) {
+  if (!allowedList.includes(session?.user?.email as string)) {
     return (
       <div className="">
         <div className="absolute left-0 top-0 flex h-screen w-screen items-center justify-center overflow-hidden bg-neutral-800 text-9xl font-bold">
