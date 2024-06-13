@@ -32,9 +32,9 @@ const Blogs = () => {
 
   useEffect(() => {
     const fetchBlogs = async () => {
-      let url = "/api/blogs";
+      let url = "/api/blogs?type=blog&";
       if (activeFilters.length > 0) {
-        url += `?category=${activeFilters.join("&category=")}`;
+        url += `category=${activeFilters.join("&category=")}`;
       }
       const res = await fetch(url);
       const blogs = await res.json();
@@ -51,10 +51,6 @@ const Blogs = () => {
       }, 1000);
     }
   }, [firstMount]);
-
-  useEffect(() => {
-    console.log("Hello world");
-  }, [activeFilters]);
 
   const filters = [
     {

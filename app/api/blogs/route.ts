@@ -9,6 +9,7 @@ export const GET = async (req: NextRequest) => {
   const searchParams = req.nextUrl.searchParams;
   const query = searchParams.get("slug");
   const categoryNames = searchParams.getAll("category");
+  const type = searchParams.get("type");
 
   if (query != null) {
     try {
@@ -22,9 +23,12 @@ export const GET = async (req: NextRequest) => {
     }
   } else {
     try {
-      let query = {};
+      let query: any = {};
       if (categoryNames.length > 0) {
         query = { categories: { $all: categoryNames } };
+      }
+      if (type) {
+        query.type = type;
       }
       const blogs = await Blog.find(query);
       return Response.json(blogs);

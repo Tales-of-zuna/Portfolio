@@ -1,5 +1,7 @@
 "use client";
 import Background from "@/components/layout/background";
+import BlogCard from "@/components/layout/cards/blogCard";
+import SkeletonCard from "@/components/layout/cards/skeletonCard";
 import {
   mdiKubernetes,
   mdiLanguageGo,
@@ -17,6 +19,7 @@ const Projects = () => {
   const [mounted, setMounted] = useState(false);
   const [firstMount, setFirstMount] = useState(true);
   const [activeFilters, setActiveFilters] = useState<any>([]);
+  const [blogs, setBlogs] = useState<any>([]);
 
   const toggleFilter = (filter: any) => {
     setActiveFilters((prevFilters: any) => {
@@ -29,6 +32,19 @@ const Projects = () => {
   };
 
   useEffect(() => {
+    const fetchBlogs = async () => {
+      let url = "/api/blogs?type=project&";
+      if (activeFilters.length > 0) {
+        url += `category=${activeFilters.join("&category=")}`;
+      }
+      const res = await fetch(url);
+      const blogs = await res.json();
+      setBlogs(blogs);
+    };
+    fetchBlogs();
+  }, [activeFilters]);
+
+  useEffect(() => {
     setMounted(true);
     if (firstMount) {
       setTimeout(() => {
@@ -36,10 +52,6 @@ const Projects = () => {
       }, 1000);
     }
   }, [firstMount]);
-
-  useEffect(() => {
-    console.log("Hello world");
-  }, [activeFilters]);
 
   const filters = [
     {
@@ -107,6 +119,14 @@ const Projects = () => {
               {filter.label} {filter.icon}
             </Button>
           ))}
+        </div>
+
+        <div className="grid gap-8 md:grid-cols-4">
+          {blogs
+            ? blogs?.map((blog: any, idx: any) => {
+                return <BlogCard key={idx} blog={blog} />;
+              })
+            : Array.from({ length: 4 }, (_, i) => <SkeletonCard key={i} />)}
         </div>
       </div>
     </div>

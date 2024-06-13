@@ -19,7 +19,7 @@ const buttons = [
   {
     path: mdiViewDashboard,
     href: "/admin/dashboard",
-    tooltipContent: "Dashboard",
+    tooltipContent: "Write",
   },
   { path: mdiPost, href: "/admin/blogs", tooltipContent: "Blogs" },
   {
