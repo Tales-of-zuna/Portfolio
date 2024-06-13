@@ -41,7 +41,7 @@ const CreateBlog = () => {
       video,
       tags,
       categories: categories,
-      type: type + "",
+      type: type,
     };
     console.log(newBlog);
     try {
@@ -74,6 +74,9 @@ const CreateBlog = () => {
     } finally {
       setSubmitting(false);
     }
+  };
+  const handleSelectionChange = (e: React.ChangeEvent<HTMLSelectElement>) => {
+    setType(e.target.value);
   };
 
   const handleEditorChange = (content: SetStateAction<string>) => {
@@ -135,7 +138,11 @@ const CreateBlog = () => {
           value={tags}
           onChange={(e) => setTags(e.target.value.split(","))}
         />
-        <Select label="Type" selectedKeys={type} onSelectionChange={setType}>
+        <Select
+          label="Type"
+          selectedKeys={type}
+          onChange={handleSelectionChange}
+        >
           <SelectItem className="text-center text-neutral-800" key={"blog"}>
             Blog
           </SelectItem>
