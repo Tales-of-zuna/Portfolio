@@ -24,7 +24,7 @@ export const GET = async (req: NextRequest) => {
     try {
       let query = {};
       if (categoryNames.length > 0) {
-        query = { categories: { $in: categoryNames } };
+        query = { categories: { $all: categoryNames } };
       }
       const blogs = await Blog.find(query);
       return Response.json(blogs);
