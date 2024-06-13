@@ -4,7 +4,14 @@ import {
   mdiCodeJson,
   mdiDevices,
   mdiForest,
+  mdiKubernetes,
+  mdiLanguageGo,
+  mdiLanguageJava,
+  mdiLanguageJavascript,
+  mdiLeaf,
+  mdiNuxt,
   mdiPlaneTrain,
+  mdiReact,
 } from "@mdi/js";
 import Icon from "@mdi/react";
 import { Card, CardFooter, CardHeader } from "@nextui-org/react";
@@ -34,6 +41,34 @@ const BlogCard = (props: any) => {
     {
       label: "Photograph",
       icon: <Icon className="h-5 w-5" path={mdiCamera} />,
+    },
+    {
+      label: "NextJS",
+      icon: <Icon className="h-5 w-5" path={mdiReact} />,
+    },
+    {
+      label: "MongoDB",
+      icon: <Icon className="h-5 w-5" path={mdiLeaf} />,
+    },
+    {
+      label: "ExpressJS",
+      icon: <Icon className="h-5 w-5" path={mdiLanguageJavascript} />,
+    },
+    {
+      label: "Go",
+      icon: <Icon className="h-5 w-5" path={mdiLanguageGo} />,
+    },
+    {
+      label: "Kubernetes",
+      icon: <Icon className="h-5 w-5" path={mdiKubernetes} />,
+    },
+    {
+      label: "Quarkus",
+      icon: <Icon className="h-5 w-5" path={mdiLanguageJava} />,
+    },
+    {
+      label: "NuxtJS",
+      icon: <Icon className="h-5 w-5" path={mdiNuxt} />,
     },
   ];
   const shouldRenderIcon = (label: string) => {

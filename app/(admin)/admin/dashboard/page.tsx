@@ -41,7 +41,7 @@ const CreateBlog = () => {
       video,
       tags,
       categories: categories,
-      type: type,
+      type: type + "",
     };
     console.log(newBlog);
     try {

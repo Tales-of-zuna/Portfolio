@@ -1,5 +1,7 @@
 "use client";
+import Loader from "@/components/layout/loader";
 import "@/styles/fontHeights.css";
+import "@/styles/loader.css";
 import dayjs from "dayjs";
 import { useEffect, useState } from "react";
 
@@ -34,7 +36,7 @@ const BlogDetails = ({ params }: { params: { slug: string } }) => {
   if (loading) {
     return (
       <div className="flex h-screen w-screen items-center justify-center">
-        Loading...
+        <Loader />
       </div>
     );
   }

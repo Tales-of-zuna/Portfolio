@@ -1,7 +1,7 @@
 "use client";
 import Background from "@/components/layout/background";
 import BlogCard from "@/components/layout/cards/blogCard";
-import SkeletonCard from "@/components/layout/cards/skeletonCard";
+import Loader from "@/components/layout/loader";
 import {
   mdiCamera,
   mdiChefHat,
@@ -18,6 +18,8 @@ const Blogs = () => {
   const [mounted, setMounted] = useState(false);
   const [firstMount, setFirstMount] = useState(true);
   const [activeFilters, setActiveFilters] = useState<any>([]);
+  const [error, setError] = useState<string | null>(null);
+  const [loading, setLoading] = useState(true);
   const [blogs, setBlogs] = useState<any>([]);
 
   const toggleFilter = (filter: any) => {
@@ -32,13 +34,19 @@ const Blogs = () => {
 
   useEffect(() => {
     const fetchBlogs = async () => {
-      let url = "/api/blogs?type=blog&";
-      if (activeFilters.length > 0) {
-        url += `category=${activeFilters.join("&category=")}`;
+      try {
+        let url = "/api/blogs?type=blog&";
+        if (activeFilters.length > 0) {
+          url += `category=${activeFilters.join("&category=")}`;
+        }
+        const res = await fetch(url);
+        const blogs = await res.json();
+        setBlogs(blogs);
+      } catch (error) {
+        setError("Failed to fetch data");
+      } finally {
+        setLoading(false);
       }
-      const res = await fetch(url);
-      const blogs = await res.json();
-      setBlogs(blogs);
     };
     fetchBlogs();
   }, [activeFilters]);
@@ -116,11 +124,15 @@ const Blogs = () => {
         </div>
 
         <div className="grid gap-8 md:grid-cols-4">
-          {blogs
-            ? blogs?.map((blog: any, idx: any) => {
-                return <BlogCard key={idx} blog={blog} />;
-              })
-            : Array.from({ length: 4 }, (_, i) => <SkeletonCard key={i} />)}
+          {!loading ? (
+            blogs?.map((blog: any, idx: any) => {
+              return <BlogCard key={idx} blog={blog} />;
+            })
+          ) : (
+            <div className="col-span-4 flex h-96 items-center justify-center">
+              <Loader />
+            </div>
+          )}
         </div>
       </div>
     </div>

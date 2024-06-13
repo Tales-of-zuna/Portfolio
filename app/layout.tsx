@@ -1,6 +1,7 @@
 import Providers from "@/components/layout/providers";
 import type { Metadata } from "next";
 import { Roboto_Flex } from "next/font/google";
+import React from "react";
 import "./globals.css";
 
 const roboto = Roboto_Flex({ subsets: ["cyrillic"] });
