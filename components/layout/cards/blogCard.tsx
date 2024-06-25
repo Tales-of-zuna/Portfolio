@@ -80,9 +80,8 @@ const BlogCard = (props: any) => {
         onClick={() => {
           router.push(`/blogs/${props.blog.slug}`);
         }}
-        isFooterBlurred
         isPressable
-        className="relative h-80 w-full rounded-xl bg-transparent shadow-xl"
+        className="relative h-80 w-full rounded-xl bg-transparent p-0 shadow-xl"
       >
         <video
           autoPlay
@@ -91,7 +90,7 @@ const BlogCard = (props: any) => {
           className="h-full w-full rounded-2xl object-cover"
           src={props.blog.video}
         />
-        <div className="absolute top-0 z-10 h-1/2 w-full rounded-xl bg-gradient-to-b from-black"></div>
+        <div className="absolute top-0 z-0 h-1/2 w-[600px] rounded-xl bg-gradient-to-b from-black"></div>
         <CardHeader className="absolute top-1 z-10 flex-col items-start">
           <p className="text-tiny font-bold uppercase text-neutral-400">
             {dayjs(props.blog.createdAt).format("YYYY.MM.DD")}
@@ -100,21 +99,23 @@ const BlogCard = (props: any) => {
             {props.blog.title}
           </h4>
         </CardHeader>
-        <CardFooter className="absolute bottom-0 z-10 h-20 rounded-xl bg-neutral-950 bg-opacity-60">
-          <div className="flex items-center gap-4">
-            {icons.map((iconObj, index) =>
-              shouldRenderIcon(iconObj.label) ? (
-                <div key={index} className="flex gap-2">
-                  <div className="rounded-lg bg-white p-1 text-neutral-800">
-                    {iconObj.icon}
+        <CardFooter className="absolute bottom-0 z-10 h-20 p-1">
+          <div className="flex h-full w-full items-center justify-center rounded-xl bg-neutral-950 bg-opacity-60 p-4 backdrop-blur-sm">
+            <div className="flex items-center gap-4">
+              {icons.map((iconObj, index) =>
+                shouldRenderIcon(iconObj.label) ? (
+                  <div key={index} className="flex gap-2">
+                    <div className="rounded-lg bg-white p-1 text-neutral-800">
+                      {iconObj.icon}
+                    </div>
                   </div>
-                </div>
-              ) : null,
-            )}
-            <div className="">
-              <p className="line-clamp-2 text-start text-sm text-neutral-300">
-                {props.blog.summary}
-              </p>
+                ) : null,
+              )}
+              <div className="">
+                <p className="line-clamp-2 text-start text-sm text-neutral-300">
+                  {props.blog.summary}
+                </p>
+              </div>
             </div>
           </div>
         </CardFooter>
