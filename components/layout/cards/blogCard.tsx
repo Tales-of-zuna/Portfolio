@@ -14,7 +14,7 @@ import {
   mdiReact,
 } from "@mdi/js";
 import Icon from "@mdi/react";
-import { Card, CardFooter, CardHeader } from "@nextui-org/react";
+import { Card, CardFooter, CardHeader, Image } from "@nextui-org/react";
 import dayjs from "dayjs";
 import { useRouter } from "next/navigation";
 
@@ -84,13 +84,22 @@ const BlogCard = (props: any) => {
         isPressable
         className="relative h-80 w-full rounded-xl bg-transparent p-0 shadow-xl"
       >
-        <video
-          autoPlay
-          loop
-          muted
-          className="h-full w-full rounded-2xl object-cover"
-          src={props.blog.video}
-        />
+        {props.blog.video != "/" ? (
+          <video
+            autoPlay
+            loop
+            muted
+            className="h-full w-full rounded-2xl object-cover"
+            src={props.blog.video}
+          />
+        ) : (
+          <Image
+            src={props.blog.image}
+            alt=""
+            className="h-full w-full rounded-2xl object-cover"
+          />
+        )}
+
         <div className="absolute -top-2 z-10 h-1/2 w-[600px] rounded-xl bg-gradient-to-b from-black"></div>
         <CardHeader className="absolute top-1 z-10 flex-col items-start">
           <p className="text-tiny font-bold uppercase text-neutral-400">
