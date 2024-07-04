@@ -1,7 +1,9 @@
 import {
+  mdiApplicationBraces,
   mdiCamera,
   mdiChefHat,
   mdiCodeJson,
+  mdiCompare,
   mdiDevices,
   mdiForest,
   mdiKubernetes,
@@ -21,6 +23,15 @@ import { useRouter } from "next/navigation";
 const BlogCard = (props: any) => {
   const router = useRouter();
   const icons = [
+    {
+      label: "Performance",
+      icon: <Icon className="h-5 w-5" path={mdiCompare} />,
+    },
+    {
+      label: "Software",
+      icon: <Icon className="h-5 w-5" path={mdiApplicationBraces} />,
+    },
+
     {
       label: "Technology",
       icon: <Icon className="h-5 w-5" path={mdiDevices} />,
