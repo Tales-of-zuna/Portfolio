@@ -10,7 +10,7 @@ const CreateBlog = () => {
   const [summary, setSummary] = useState<any>("");
   const [content, setContent] = useState<any>("");
   const [image, setImage] = useState<any>("");
-  const [video, setVideo] = useState<any>("");
+  const [video, setVideo] = useState<any>("/");
   const [tags, setTags] = useState<any>([]);
   const [categories, setCategories] = useState<any>([]);
   const [remoteCategories, setRemoteCategories] = useState<any>([]);

@@ -1,5 +1,7 @@
 "use client";
 import Background from "@/components/layout/background";
+import BlogCard from "@/components/layout/cards/blogCard";
+import Loader from "@/components/layout/loader";
 import {
   mdiApplicationBraces,
   mdiChefHat,
@@ -14,6 +16,9 @@ const Experiments = () => {
   const [mounted, setMounted] = useState(false);
   const [firstMount, setFirstMount] = useState(true);
   const [activeFilters, setActiveFilters] = useState<any>([]);
+  const [blogs, setBlogs] = useState<any>([]);
+  const [error, setError] = useState<string | null>(null);
+  const [loading, setLoading] = useState(true);
 
   const toggleFilter = (filter: any) => {
     setActiveFilters((prevFilters: any) => {
@@ -26,6 +31,25 @@ const Experiments = () => {
   };
 
   useEffect(() => {
+    const fetchBlogs = async () => {
+      try {
+        let url = "/api/blogs?type=experiment&";
+        if (activeFilters.length > 0) {
+          url += `category=${activeFilters.join("&category=")}`;
+        }
+        const res = await fetch(url);
+        const blogs = await res.json();
+        setBlogs(blogs);
+      } catch (error) {
+        setError("Failed to fetch data");
+      } finally {
+        setLoading(false);
+      }
+    };
+    fetchBlogs();
+  }, [activeFilters]);
+
+  useEffect(() => {
     setMounted(true);
     if (firstMount) {
       setTimeout(() => {
@@ -33,10 +57,6 @@ const Experiments = () => {
       }, 1000);
     }
   }, [firstMount]);
-
-  useEffect(() => {
-    console.log("Hello world");
-  }, [activeFilters]);
 
   const filters = [
     {
@@ -92,6 +112,18 @@ const Experiments = () => {
               {filter.label} {filter.icon}
             </Button>
           ))}
+        </div>
+
+        <div className="grid gap-8 md:grid-cols-4">
+          {!loading ? (
+            blogs?.map((blog: any, idx: any) => {
+              return <BlogCard key={idx} blog={blog} />;
+            })
+          ) : (
+            <div className="col-span-4 flex h-96 items-center justify-center">
+              <Loader />
+            </div>
+          )}
         </div>
       </div>
     </div>
