@@ -58,7 +58,10 @@ const BlogDetails = ({ params }: { params: { slug: string } }) => {
             {dayjs(data?.createdAt).format("YYYY.MM.DD")}
           </p>
         </div>
-        <div dangerouslySetInnerHTML={{ __html: data?.content }} />
+        <div
+          className="w-full overflow-hidden text-pretty"
+          dangerouslySetInnerHTML={{ __html: data?.content }}
+        />
       </div>
     </div>
   );
