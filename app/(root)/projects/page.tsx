@@ -98,7 +98,7 @@ const Projects = () => {
         mounted ? "opacity-100" : "opacity-30"
       }`}
     >
-      <div className="fixed left-0 top-0 z-0 hidden h-full w-full items-center gap-12 overflow-hidden opacity-10 md:flex">
+      <div className="fixed bottom-0 left-0 z-0 h-full w-full items-center gap-12 overflow-hidden opacity-10 md:top-0">
         <Background />
       </div>
       <div className="container space-y-8 pt-24">
