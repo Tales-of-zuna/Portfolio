@@ -66,5 +66,4 @@ const BlogDetails = ({ params }: { params: { slug: string } }) => {
     </div>
   );
 };
-//  i know my time is coming...
 export default BlogDetails;
