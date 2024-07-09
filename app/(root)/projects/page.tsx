@@ -14,6 +14,7 @@ import {
 import Icon from "@mdi/react";
 import { Button } from "@nextui-org/react";
 import { useEffect, useState } from "react";
+//
 
 const Projects = () => {
   const [mounted, setMounted] = useState(false);
