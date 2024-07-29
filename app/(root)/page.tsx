@@ -130,7 +130,7 @@ const Home = () => {
           out some of my photography work on my{" "}
           <Link
             className="font-semibold text-gray-200 hover:underline"
-            href={"https://www.instagram.com/zuna.btw/?hl=en"}
+            href={"https://www.instagram.com/zuna.btw"}
           >
             {` Instagram `}
           </Link>{" "}
