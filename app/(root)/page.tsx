@@ -33,6 +33,7 @@ const Home = () => {
     setYearsExp(years);
     setMounted(true);
   }, []);
+
   return (
     <div
       className={`flex min-h-screen transform justify-center bg-gradient-to-tl from-black to-slate-700 p-4 pt-20 transition-all duration-300 ease-in-out md:items-center md:pt-4 ${
