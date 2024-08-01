@@ -38,7 +38,11 @@ const SignInButton = () => {
               name={session.user.name}
             />
           </DropdownTrigger>
-          <DropdownMenu className="" aria-label="User Actions" variant="light">
+          <DropdownMenu
+            className="flex flex-col items-center justify-center"
+            aria-label="User Actions"
+            variant="light"
+          >
             <DropdownItem isReadOnly key="profile" className="h-14 gap-2">
               <p className="font-bold">Signed in as</p>
               <p className="font-bold">@{session.user.email}</p>
