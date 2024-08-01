@@ -39,7 +39,7 @@ const SignInButton = () => {
             />
           </DropdownTrigger>
           <DropdownMenu
-            className="flex flex-col items-center justify-center pl-0"
+            className="flex flex-col items-center justify-center pl-0 pr-7"
             aria-label="User Actions"
             variant="light"
           >
