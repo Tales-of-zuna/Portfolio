@@ -39,11 +39,11 @@ const SignInButton = () => {
             />
           </DropdownTrigger>
           <DropdownMenu
-            className="flex flex-col items-center justify-center"
+            className="flex flex-col items-center justify-center pl-0"
             aria-label="User Actions"
             variant="light"
           >
-            <DropdownItem isReadOnly key="profile" className="h-14 gap-2">
+            <DropdownItem isReadOnly key="profile" className="gap-2">
               <p className="font-bold">Signed in as</p>
               <p className="font-bold">@{session.user.email}</p>
             </DropdownItem>
