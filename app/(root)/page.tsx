@@ -1,6 +1,14 @@
 "use client";
 import Background from "@/components/layout/background";
-import { Link } from "@nextui-org/react";
+import {
+  mdiDatabase,
+  mdiLanguageGo,
+  mdiLanguageJava,
+  mdiLanguageTypescript,
+  mdiWeb,
+} from "@mdi/js";
+import Icon from "@mdi/react";
+import { Image, Link } from "@nextui-org/react";
 import dayjs from "dayjs";
 import { useEffect, useState } from "react";
 
@@ -61,6 +69,7 @@ const Home = () => {
         >
           Hey, I am Zuunbileg, a system development engineer.
         </p>
+
         <p
           className={
             mounted
@@ -102,6 +111,87 @@ const Home = () => {
           </span>{" "}
           years of professional experience.
         </p>
+        <div
+          className={
+            mounted
+              ? "translate-y-0 transform transition-all delay-300 duration-1000 ease-in-out"
+              : "translate-y-8 opacity-0"
+          }
+        >
+          <div className="flex items-center gap-2 py-1">
+            <p>Developing</p>
+            <div className="flex items-center gap-2">
+              <Link
+                className="flex items-center gap-1 rounded-md bg-white bg-opacity-10 p-1 text-sm text-white"
+                href="https://www.univision.mn/"
+              >
+                <Image
+                  src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRTNOPuoW_ZCBZM-vadAQJt67_NQmIO-v8aNw&s"
+                  alt=""
+                  className="h-5 w-5"
+                />
+                Univision
+              </Link>
+              <Link
+                className="flex items-center gap-1 rounded-md bg-white bg-opacity-10 p-1 text-sm text-white"
+                href="https://www.boom.mn/"
+              >
+                <Image
+                  src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQZnA9chVytn_oiwPvFhCuHbZzSOwCzrP3gog&s"
+                  alt=""
+                  className="h-5 w-5"
+                />
+                Boom
+              </Link>
+            </div>
+          </div>
+          <div className="flex items-center gap-2 py-1">
+            <p>Using</p>
+            <div className="flex items-center gap-2">
+              <Link
+                className="flex items-center gap-1 rounded-md bg-white bg-opacity-10 p-1 text-sm text-white"
+                href="https://www.typescriptlang.org/"
+              >
+                <Icon path={mdiLanguageTypescript} className="h-5 w-5" />
+                TypeScript
+              </Link>
+              <Link
+                className="flex items-center gap-1 rounded-md bg-white bg-opacity-10 p-1 text-sm text-white"
+                href="https://go.dev/"
+              >
+                <Icon path={mdiLanguageGo} className="h-5 w-5" />
+                Golang
+              </Link>
+              <Link
+                className="flex items-center gap-1 rounded-md bg-white bg-opacity-10 p-1 text-sm text-white"
+                href="https://www.java.com/en/"
+              >
+                <Icon path={mdiLanguageJava} className="h-5 w-5" />
+                Java
+              </Link>
+              <Link
+                className="flex items-center gap-1 rounded-md bg-white bg-opacity-10 p-1 text-sm text-white"
+                href="https://www.postgresql.org/"
+              >
+                <Icon path={mdiDatabase} className="h-5 w-5" />
+                SQL
+              </Link>
+            </div>
+          </div>
+          <div className="flex flex-wrap items-center gap-2 py-1">
+            <p>Specialized in</p>
+            <div className="flex items-center gap-2">
+              <Link
+                className="flex items-center gap-1 rounded-md bg-white bg-opacity-10 p-1 text-sm text-white"
+                href="/experiments"
+              >
+                <Icon path={mdiWeb} className="h-5 w-5" />
+                Web development
+              </Link>
+            </div>
+          </div>
+        </div>
+
         <p
           className={
             mounted
@@ -129,7 +219,7 @@ const Home = () => {
           out some of my photography work on my{" "}
           <Link
             className="font-semibold text-gray-200 hover:underline"
-            href={"https://www.instagram.com/zuna.btw"}
+            href={"https://www.univision.mn/"}
           >
             {` Instagram `}
           </Link>{" "}
@@ -182,7 +272,7 @@ const Home = () => {
             </Link>
           </div>
         </div>
-        <p
+        {/* <p
           className={
             mounted
               ? "translate-y-0 transform transition-all delay-1000 duration-1000 ease-in-out"
@@ -198,7 +288,7 @@ const Home = () => {
             {` Paypal `}
           </Link>{" "}
           to keep them sustainable.
-        </p>
+        </p> */}
         <div
           className={`flex gap-4 text-gray-500 ${
             mounted
