@@ -132,7 +132,7 @@ const Home = () => {
                 />
                 Univision
               </Link>
-              <Link
+              {/* <Link
                 className="flex items-center gap-1 rounded-md bg-white bg-opacity-10 p-1 text-sm text-white"
                 href="https://www.boom.mn/"
               >
@@ -142,7 +142,7 @@ const Home = () => {
                   className="h-5 w-5"
                 />
                 Boom
-              </Link>
+              </Link> */}
             </div>
           </div>
           <div className="flex items-center gap-2 py-1">
