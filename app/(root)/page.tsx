@@ -102,7 +102,7 @@ const Home = () => {
           and
           <span className="font-semibold text-gray-200">{` UNICEF `}</span>
           {`(
-          "Namuu" project )`}
+          "OKY" project )`}
           .
           <br />
           With <span className="font-semibold text-gray-200">
